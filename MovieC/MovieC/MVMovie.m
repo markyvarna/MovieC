@@ -17,10 +17,10 @@
     self = [super init];
     if (self)
     {
-        _title = [title copy];
-        _overview = [overview copy];
+        _title = title;
+        _overview = overview;
         _rating = rating;
-        _imagePath = [imagePath copy];
+        _imagePath = imagePath;
     }
     return self;
 }

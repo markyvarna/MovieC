@@ -17,12 +17,12 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, copy) NSString *overview;
 @property (nonatomic, readonly, copy) NSString *imagePath;
 @property (nonatomic, readonly) float  rating;
-//@property (nonatomic, readonly, copy, nullable) NSArray *movies;
 
-//Initialization
 
+//Init Movie Object
 - (instancetype)initWithMovieNamed: (NSString *)title overview: (NSString *)overview rating: (float)rating imagePath: (NSString *)imagePath;
 
+//Init Dictionary
 - (instancetype)initWithDictionary: (NSDictionary *)movieDictionary;
 
 

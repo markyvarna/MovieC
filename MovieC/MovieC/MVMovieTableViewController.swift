@@ -13,7 +13,8 @@ class MVMovieTableViewController: UITableViewController, UISearchBarDelegate {
      //MARK: - Outlets
     @IBOutlet var movieSearchBar: UISearchBar!
     
-    //MARK; - Properties
+    //MARK: - Properties
+    
     //Source of Truth
     var movies: [MVMovie] = []
     
@@ -46,17 +47,18 @@ class MVMovieTableViewController: UITableViewController, UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
-        guard let searchTerm = searchBar.text, !searchTerm.isEmpty, searchTerm != " " else {return}
+        guard let searchTerm = searchBar.text else {return}
         self.resignFirstResponder()
-        MVMovieClient.shared().fetchMovie(bySearchTerm: searchTerm) { (movies) in
-             let movies =  movies 
-            
-            DispatchQueue.main.async {
-                self.movies = movies
-                self.tableView.reloadData()
+       
+            MVMovieClient.shared().fetchMovie(bySearchTerm: searchTerm) { (movies) in
+                //assign the movies that come back to the source of truth
+                let movies =  movies
+                
+                DispatchQueue.main.async {
+                    self.movies = movies
+                    self.tableView.reloadData()
+                }
             }
-        }
-        
         
     }
 

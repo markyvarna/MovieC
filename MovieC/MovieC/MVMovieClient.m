@@ -46,7 +46,7 @@
     NSURLQueryItem *apiKeyQuery = [NSURLQueryItem queryItemWithName:@"api_key" value:@"4c5ab512bcf7e4578d8704902773141d"];
     NSURLQueryItem *languageQuery = [NSURLQueryItem queryItemWithName:@"language" value:@"en-US"];
     NSURLQueryItem *movieSearchQuery = [NSURLQueryItem queryItemWithName:@"query" value:searchTerm];
-    
+    //array literal of query items
     urlComponents.queryItems = @[apiKeyQuery, languageQuery, movieSearchQuery];
     
     //URLSession
